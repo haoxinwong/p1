@@ -1,0 +1,17 @@
+C:\Work2021\P0-M\StoreBL\obj\Debug\net5.0\StoreBL.csproj.AssemblyReference.cache
+C:\Work2021\P0-M\StoreBL\obj\Debug\net5.0\StoreBL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Work2021\P0-M\StoreBL\obj\Debug\net5.0\StoreBL.AssemblyInfoInputs.cache
+C:\Work2021\P0-M\StoreBL\obj\Debug\net5.0\StoreBL.AssemblyInfo.cs
+C:\Work2021\P0-M\StoreBL\obj\Debug\net5.0\StoreBL.csproj.CoreCompileInputs.cache
+C:\Work2021\P0-M\StoreBL\bin\Debug\net5.0\StoreBL.deps.json
+C:\Work2021\P0-M\StoreBL\bin\Debug\net5.0\StoreBL.dll
+C:\Work2021\P0-M\StoreBL\bin\Debug\net5.0\ref\StoreBL.dll
+C:\Work2021\P0-M\StoreBL\bin\Debug\net5.0\StoreBL.pdb
+C:\Work2021\P0-M\StoreBL\bin\Debug\net5.0\DL.dll
+C:\Work2021\P0-M\StoreBL\bin\Debug\net5.0\Models.dll
+C:\Work2021\P0-M\StoreBL\bin\Debug\net5.0\DL.pdb
+C:\Work2021\P0-M\StoreBL\bin\Debug\net5.0\Models.pdb
+C:\Work2021\P0-M\StoreBL\obj\Debug\net5.0\StoreBL.csproj.CopyComplete
+C:\Work2021\P0-M\StoreBL\obj\Debug\net5.0\StoreBL.dll
+C:\Work2021\P0-M\StoreBL\obj\Debug\net5.0\ref\StoreBL.dll
+C:\Work2021\P0-M\StoreBL\obj\Debug\net5.0\StoreBL.pdb
