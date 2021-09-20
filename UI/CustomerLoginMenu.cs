@@ -19,25 +19,31 @@ namespace P0_M.UI
             {
                 Console.WriteLine("This is customer login menu.");
                 Console.WriteLine("[0] Enter your name: ");
-                Console.WriteLine("[x] Go Back To Main Menu");
+                Console.WriteLine("[<] Go Back To Main Menu");
+                Console.WriteLine("[x] Exit");
                 input = Console.ReadLine().ToLower();
 
                 switch (input)
                 {
                     case "0":
-                        GoBrowseMenu();
+                        GoCustomerMenu();
                         break;
-                    case "x":
+                    case "<":
                         exit = true;
                         break;
+                    case "x":
+                        Console.WriteLine("bye");
+                        System.Environment.Exit(1);
+                        break;
                     default:
+                        Console.WriteLine("?");
                         break;
                 }
             } while (!exit);
             
         }
 
-        public void GoBrowseMenu(){
+        public void GoCustomerMenu(){
             Console.WriteLine("Enter your name");
             inputName:
             Console.WriteLine("Name: ");
@@ -53,22 +59,61 @@ namespace P0_M.UI
                     {
                         if (tempCustomer.Name.Equals(name)){
                             customer = tempCustomer;
+
                             newCustomer = false;
+                            Console.WriteLine("Thank you for coming back.");
                         }
                     }
                     if (newCustomer){
-                        customer = new Customer( name , new List<Order>());
+                        Console.WriteLine("Thank you for join us.");
+                        Console.WriteLine("You are a new customer.");
+                        Console.WriteLine("Please enter following information");
+                        enterAddress:
+                        Console.WriteLine("Address: ");
+                        string address = Console.ReadLine();
+                        if (CheckAddress(address).Equals("-1")){
+                            Console.WriteLine("Unacceptable Address, Reenter");
+                            goto enterAddress;
+                        }
+
+                        enterPhonenumber:
+                        Console.WriteLine("Phone Number: ");
+                        string phonenumber = Console.ReadLine();
+                        if (CheckPhoneNumber(phonenumber).Equals("-1")){
+                            Console.WriteLine("Unacceptable Phonenumber, Reenter");
+                            goto enterPhonenumber;
+                        }
+                        customer = new Customer( name, address, phonenumber, new List<Order>());
                         _cbl.Add(customer);
                     }
                 }catch(Exception e){
                     Console.WriteLine(e.Message);
                     goto inputName;
                 }
-                new BrowseMenu(customer).Start();
-
+                new CustomerMenu(customer).Start();
             }
-
-
         }
+
+        private string CheckAddress(string str){
+                string pattern = @"^[a-zA-z0-9 ]*$";
+                string result = str;
+                if (!(System.Text.RegularExpressions.Regex.IsMatch(str, pattern))){
+                    result = "-1" ;
+                }
+                return result;
+        }
+
+
+        private string CheckPhoneNumber(string str){
+                string pattern = @"^[0-9]*$";
+                string result = str;
+
+                if (!((str.Length==9)&&(System.Text.RegularExpressions.Regex.IsMatch(str, pattern)))){
+                    result = "-1" ;
+                }
+                return result;
+        }
+
+    
     }
 }

@@ -5,6 +5,8 @@ namespace P0_M.Models
     public class Customer
     {
         public string Name{get;set;}
+        public string Address{get;set;}
+        public string PhoneNumber{get;set;}
 
         public List<Order> Orders{get;set;}
         
@@ -14,7 +16,12 @@ namespace P0_M.Models
             this.Name = name;
         }
 
-        public Customer(string name, List<Order>orders):this(name){
+        public Customer(string name, string address, string phonenumber):this(name){
+            this.Address = address;
+            this.PhoneNumber = phonenumber;
+        }
+
+        public Customer(string name, string address, string phonenumber, List<Order>orders):this(name,address,phonenumber){
             this.Orders = orders;
         }
 

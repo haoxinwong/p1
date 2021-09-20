@@ -21,3 +21,15 @@ C:\Work2021\P0-M\UI\obj\Debug\net5.0\UI.pdb
 C:\Work2021\P0-M\UI\obj\Debug\net5.0\UI.genruntimeconfig.cache
 C:\Work2021\P0-M\UI\bin\Debug\net5.0\BL.dll
 C:\Work2021\P0-M\UI\bin\Debug\net5.0\BL.pdb
+C:\Work2021\P0-M\UI\bin\Debug\net5.0\Microsoft.Extensions.Configuration.dll
+C:\Work2021\P0-M\UI\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Work2021\P0-M\UI\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Work2021\P0-M\UI\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Work2021\P0-M\UI\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Work2021\P0-M\UI\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Work2021\P0-M\UI\bin\Debug\net5.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Work2021\P0-M\UI\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Work2021\P0-M\UI\bin\Debug\net5.0\Serilog.dll
+C:\Work2021\P0-M\UI\bin\Debug\net5.0\Serilog.Settings.Configuration.dll
+C:\Work2021\P0-M\UI\bin\Debug\net5.0\Serilog.Sinks.Console.dll
+C:\Work2021\P0-M\UI\bin\Debug\net5.0\Serilog.Sinks.File.dll

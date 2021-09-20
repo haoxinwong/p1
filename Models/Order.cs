@@ -1,20 +1,26 @@
 using System;
 using System.Collections.Generic;
-using System.DateTime;
 
 namespace P0_M.Models
 {
     public class Order
     {
         public decimal Total{get;set;}
-        public List<LineItem>LineItems{get;set;}
-        public DateTime time{get;set;}
+        public List<LineItem> LineItems{get;set;}
+        public DateTime Time{get;set;}
+        public string Location{get;set;}
 
         public Order(){}
 
         public Order(List<LineItem>lineItems){
             this.LineItems = lineItems;
-            this.time = DateTime.Now;
+            this.Time = DateTime.Now;
+            calTotal();
+        }
+        public Order(List<LineItem>lineItems, string location){
+            this.LineItems = lineItems;
+            this.Location = location;
+            this.Time = DateTime.Now;
             calTotal();
         }
 

@@ -11,6 +11,7 @@ namespace P0_M.Models
         public string Address{get;set;}
         public List<LineItem> Inventory{get;set;}
         private StringBuilder _sb = new StringBuilder();
+        private List<Customer> OrderHistory{get;set;}
 
         public Store(){}
 
@@ -24,14 +25,12 @@ namespace P0_M.Models
             return $"Store name: {this.Name} \n Address: {this.Address}";
         }
 
-        // public string showInventory(){
-        //     _sb = "Current Inventory\n";
-        //     foreach (LineItem item in this.Inventory)
-        //     {
-        //         _sb.Append()
-        //     }
-
-        // }
+        public void AdjustInventory(List<LineItem>customerLineItem,List<int>itempos){
+            for (int i = 0; i < customerLineItem.Count; i++)
+            {
+                Inventory[itempos[i]].Quantity = Inventory[itempos[i]].Quantity - customerLineItem[i].Quantity;
+            }
+        }
 
 
 

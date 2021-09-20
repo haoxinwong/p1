@@ -1,8 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "hjEPonsHS4pjSY/OIaT7xtv1/T9IwHF76sHkB29LOsM5iPybDQmSLfoHEToSTzqFsJsFpHJ5Y4gk9uyCuMNGGQ==",
+  "dgSpecHash": "M142jEhWOrArH2L+LfUgfd63XV5yKfJSpXGTNb9XnnuSVXYEH6CZMtQxH65i8oiFL3bjqCtZiASeaZ29V/xGIg==",
   "success": true,
-  "projectFilePath": "C:\\Work2021\\P0-M\\ui\\UI.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Work2021\\P0-M\\UI\\UI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\WarSpite\\.nuget\\packages\\microsoft.extensions.configuration\\2.0.0\\microsoft.extensions.configuration.2.0.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\2.0.0\\microsoft.extensions.configuration.abstractions.2.0.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\microsoft.extensions.configuration.binder\\2.0.0\\microsoft.extensions.configuration.binder.2.0.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.0.0\\microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\microsoft.extensions.dependencymodel\\3.0.0\\microsoft.extensions.dependencymodel.3.0.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\microsoft.extensions.options\\2.0.0\\microsoft.extensions.options.2.0.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\2.0.0\\microsoft.extensions.options.configurationextensions.2.0.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\microsoft.extensions.primitives\\2.0.0\\microsoft.extensions.primitives.2.0.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\serilog\\2.10.0\\serilog.2.10.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\serilog.settings.configuration\\3.2.0\\serilog.settings.configuration.3.2.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\serilog.sinks.console\\4.0.0\\serilog.sinks.console.4.0.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.4.0\\system.runtime.compilerservices.unsafe.4.4.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\system.text.json\\4.6.0\\system.text.json.4.6.0.nupkg.sha512"
+  ],
   "logs": []
 }

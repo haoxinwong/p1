@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Work2021\\P0-M\\ui\\UI.csproj": {}
+    "C:\\Work2021\\P0-M\\UI\\UI.csproj": {}
   },
   "projects": {
     "C:\\Work2021\\P0-M\\BL\\BL.csproj": {
@@ -177,14 +177,14 @@
         }
       }
     },
-    "C:\\Work2021\\P0-M\\ui\\UI.csproj": {
+    "C:\\Work2021\\P0-M\\UI\\UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Work2021\\P0-M\\ui\\UI.csproj",
+        "projectUniqueName": "C:\\Work2021\\P0-M\\UI\\UI.csproj",
         "projectName": "UI",
-        "projectPath": "C:\\Work2021\\P0-M\\ui\\UI.csproj",
+        "projectPath": "C:\\Work2021\\P0-M\\UI\\UI.csproj",
         "packagesPath": "C:\\Users\\WarSpite\\.nuget\\packages\\",
-        "outputPath": "C:\\Work2021\\P0-M\\ui\\obj\\",
+        "outputPath": "C:\\Work2021\\P0-M\\UI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\WarSpite\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -219,6 +219,24 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.10.0, )"
+            },
+            "Serilog.Settings.Configuration": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

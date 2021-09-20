@@ -21,7 +21,7 @@ namespace P0_M.DL
             return JsonSerializer.Deserialize<List<Store>>(jsonString);
         }
         public Store Add(Store store){
-            List<Store>allStores = GetAll();
+            List<Store> allStores = GetAll();
             allStores.Add(store);
             jsonString = JsonSerializer.Serialize(allStores);
             File.WriteAllText(storeFilePath,jsonString);
