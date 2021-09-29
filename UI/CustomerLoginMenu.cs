@@ -3,18 +3,28 @@ using P0_M.Models;
 using P0_M.BL;
 using P0_M.DL;
 using System.Collections.Generic;
-
+using Serilog;
 namespace P0_M.UI
 {
     public class CustomerLoginMenu:IMenu
     {
         private CustomerBL _cbl;
+
+        public CustomerLoginMenu(){
+
+        }
         public CustomerLoginMenu(CustomerBL cbl){
             _cbl = cbl;
         }
         public void Start(){
             bool exit = false;
             string input = "";
+            Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .WriteTo.Console()
+            .WriteTo.File("../logs/logs.txt",rollingInterval:RollingInterval.Day)
+            .CreateLogger();
+            Log.Information("Customer Here");
             do
             {
                 Console.WriteLine("This is customer login menu.");
@@ -84,13 +94,13 @@ namespace P0_M.UI
                             goto enterPhonenumber;
                         }
                         customer = new Customer( name, address, phonenumber, new List<Order>());
-                        _cbl.Add(customer);
+                        customer = _cbl.Add(customer);
                     }
                 }catch(Exception e){
                     Console.WriteLine(e.Message);
                     goto inputName;
                 }
-                new CustomerMenu(customer).Start();
+                MenuFactory.GetMenu("customer",customer).Start();
             }
         }
 
@@ -104,11 +114,11 @@ namespace P0_M.UI
         }
 
 
-        private string CheckPhoneNumber(string str){
+        public string CheckPhoneNumber(string str){
                 string pattern = @"^[0-9]*$";
                 string result = str;
 
-                if (!((str.Length==9)&&(System.Text.RegularExpressions.Regex.IsMatch(str, pattern)))){
+                if (!((str.Length==10)&&(System.Text.RegularExpressions.Regex.IsMatch(str, pattern)))){
                     result = "-1" ;
                 }
                 return result;

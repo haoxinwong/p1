@@ -45,11 +45,13 @@ namespace P0_M.UI
         }
 
         private void GoToProfileMenu(){
-            new ProfileMenu(_currentCustomer).Start();
+            MenuFactory.GetMenu("profile",_currentCustomer).Start();
+
         }
 
         private void GoToStoresMenu(){
-            new StoresMenu(new StoreBL(new StoreDBRepo()),_currentCustomer).Start();
+            MenuFactory.GetMenu("stores",_currentCustomer).Start();
+            
         }
     }
 }

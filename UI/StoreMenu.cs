@@ -3,7 +3,7 @@ using P0_M.Models;
 using P0_M.BL;
 using P0_M.DL;
 using System.Collections.Generic;
-
+using Serilog;
 namespace P0_M.UI
 {
     public class StoreMenu:IMenu
@@ -17,6 +17,7 @@ namespace P0_M.UI
         private List<int> _itemPos;
 
         public StoreMenu(StoreBL sbl, CustomerBL cbl, Store currentStore, Customer currentCustomer){
+            Console.WriteLine("I M Here");
             _sbl = sbl;
             _cbl = cbl;
             _currentStore = currentStore;
@@ -80,14 +81,18 @@ namespace P0_M.UI
             do
             {
                 Console.WriteLine("Store Inventory");
-                List<LineItem> currentInventory = _currentStore.Inventory;
+                List<Inventory> currentInventory = _sbl.GetOneStoreById(_currentStore.Id).Inventory;
                 
+                if (currentInventory.Count == 0){
+                    Console.WriteLine("No Items");
+                    break;
+                }
                 for (var i = 0; i < currentInventory.Count; i++)
                 {
-                    LineItem tempLineItem = currentInventory[i];
+                    Inventory tempLineItem = currentInventory[i];
 
-                    Console.WriteLine($"[{i+1}] Name: {tempLineItem.Item.Name}");
-                    Console.WriteLine($"Price: {tempLineItem.Item.Price}");
+                    Console.WriteLine($"[{i}] Name: {tempLineItem.Name}");
+                    Console.WriteLine($"Price: {tempLineItem.Price}");
                     Console.WriteLine($"Quantity: {tempLineItem.Quantity}");
                 }
                 
@@ -112,7 +117,7 @@ namespace P0_M.UI
                         goto enterItemNumber;
                     }
 
-                    if(itemResult >= 0 & itemResult <= currentInventory.Count){
+                    if(itemResult >= 0 & itemResult < currentInventory.Count){
                         enterQuantityNumber:
                         Console.WriteLine("How many do you want?");
                         Console.WriteLine("Enter number: ");
@@ -128,21 +133,44 @@ namespace P0_M.UI
                         }
                         if (quantityResult>0 && quantityResult <= currentInventory[itemResult].Quantity)
                         {
-                            _currentLineItem.Add(new LineItem(currentInventory[itemResult].Item,quantityResult));
-                            _itemPos.Add(itemResult);
+                            if (_currentLineItem.Exists(x => x.Name.Equals(currentInventory[itemResult].Name)))
+                            {
+                                foreach(LineItem obj in _currentLineItem)
+                                {
+                                if(obj.Name.Equals(currentInventory[itemResult].Name))
+                                {
+                                    if(obj.Quantity + quantityResult > currentInventory[itemResult].Quantity){
+                                        Console.WriteLine("Sorry, The quantity number is larger than current inventory quantity, reenter");
+                                        goto enterItemNumber;
+                                    }else{
+                                        obj.Quantity =  obj.Quantity + quantityResult;
+                                    }
+                                    break;
+                                }
+                                }
+                                
+                            }else{
+                                _currentLineItem.Add(new LineItem(currentInventory[itemResult].Name,currentInventory[itemResult].Price,quantityResult));
+                                _itemPos.Add(itemResult);
+                                
+                            }
                             addAgain:
                             Console.WriteLine("Do you want to add more item?(y/n)");
                             
-                            if (Console.ReadLine().ToLower().Equals("y"))
+                            switch (Console.ReadLine().ToLower())
                             {
-                                goto enterItemNumber;
-                            }else if(Console.ReadLine().ToLower().Equals("n")){
-                                exitInventory = true;
-                                break;
-                            }else{
-                                Console.WriteLine("Input Error, reenter");
-                                goto addAgain;
+                                case "y":
+                                    goto enterItemNumber;
+                                case "n":
+                                    Console.WriteLine("Thanks for adding thing to shopping cart");
+                                    exitInventory = true;
+                                    break;
+                                default:
+                                    Console.WriteLine("Input Error, reenter");
+                                    goto addAgain;
                             }
+                            
+                            
                         }else{
                             Console.WriteLine("Input Error, reenter");
                             goto enterQuantityNumber;
@@ -161,13 +189,16 @@ namespace P0_M.UI
             {
                 Console.WriteLine("Current Order");
                 int i = 0;
+
                 foreach (LineItem tempItem in _currentLineItem)
                 {
                     i++;
-                    Console.WriteLine($"[{i}] Product Name: {tempItem.Item.Name}");
-                    Console.WriteLine($"Product Price: {tempItem.Item.Price}");
+                    Console.WriteLine($"[{i}] Product Name: {tempItem.Name}");
+                    Console.WriteLine($"Product Price: {tempItem.Price}");
                     Console.WriteLine($"Product Quantity: {tempItem.Quantity}");
                 }
+            }else{
+                Console.WriteLine("Current Shipping Cart is Empty");
             }
         }
 
@@ -175,13 +206,26 @@ namespace P0_M.UI
             if (_currentLineItem.Count!=0)
             {
                 Console.WriteLine("You have place an order");
-                Order tempOrder = new Order(_currentLineItem,_currentStore.Name);
-                _currentCustomer.Orders.Add(tempOrder);
-                _currentStore.AdjustInventory(_currentLineItem,_itemPos);
-                _cbl.Update(_currentCustomer);
-                _sbl.Update(_currentStore);
+                // Console.WriteLine(_currentCustomer.Id);
+                Order tempOrder = new Order(_currentLineItem,_currentStore.Name,_currentStore.Id,_currentCustomer.Id);
+                // Console.WriteLine(tempOrder.CustomerId+" "+tempOrder.LocationId);
+                int orderid = _cbl.AddAOrder(tempOrder).Id;
+                // Console.WriteLine("I here"+orderid);
+                foreach (LineItem item in _currentLineItem)
+                {
+                    // Console.WriteLine($"II here{item.Name}");
+                    item.OrderId = orderid;
+                    _cbl.AddALineItem(item);
+                }
+                List<Inventory> currentInventory = _sbl.GetOneStoreById(_currentStore.Id).Inventory;
+                for (int i = 0; i < _currentLineItem.Count; i++)
+                {
+                    currentInventory[_itemPos[i]].Quantity = currentInventory[_itemPos[i]].Quantity - _currentLineItem[i].Quantity;
+                    _sbl.UpdateInventory(currentInventory[_itemPos[i]]," ");
+                }
+                
                 Console.WriteLine("Thank you for place order");
-                Console.WriteLine($"Total is{tempOrder.Total}");
+                Console.WriteLine($"Total is {tempOrder.Total}");
                 refresh();
             }else{
                 Console.WriteLine("Current Shipping Cart is Empty");
@@ -189,6 +233,12 @@ namespace P0_M.UI
         }
 
         private void refresh(){
+            Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .WriteTo.Console()
+            .WriteTo.File("../logs/logs.txt",rollingInterval:RollingInterval.Day)
+            .CreateLogger();
+            Log.Information("DB Refresh..");
             _cbl.GetAll();
             _sbl.GetAll();
             _currentLineItem = new List<LineItem>();

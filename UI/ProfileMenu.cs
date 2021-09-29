@@ -4,21 +4,29 @@ using P0_M.BL;
 using P0_M.DL;
 using System.Text;
 using System.Collections.Generic;
-
+using Serilog;
 
 namespace P0_M.UI
 {
     public class ProfileMenu:IMenu
     {
         private Customer _currentCustomer;
+        private CustomerBL _cbl;
 
-        public ProfileMenu(Customer customer){
+        public ProfileMenu(CustomerBL cbl,Customer customer){
+            _cbl = cbl;
             _currentCustomer = customer;
         }
 
         public void Start(){
             bool exit = false;
             string input = "";
+            Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .WriteTo.Console()
+            .WriteTo.File("../logs/logs.txt",rollingInterval:RollingInterval.Day)
+            .CreateLogger();
+            Log.Information("Customer review profile");
             do
             {
                 Console.WriteLine("This is Profile Menu");
@@ -51,31 +59,32 @@ namespace P0_M.UI
         }
         private void ViewHistoryOrder(){
             bool ViewHistory = true;
+            Log.Information("Customer view order history");
             do
             {
                 Console.WriteLine("[0] Display Order by Date (latest to oldest)");
                 Console.WriteLine("[1] Display Order by Date (oldest to latest)");
                 Console.WriteLine("[2] Display Order by Cost (least expensive to most expensive)");
-                Console.WriteLine("[2] Display Order by Cost (most expensive to least expensive)");
+                Console.WriteLine("[3] Display Order by Cost (most expensive to least expensive)");
                 Console.WriteLine("[<] Stop Display Order History");
                 string historyInput = Console.ReadLine();
                 List<Order> TempOrders = new List<Order>();
                 switch (historyInput)
                 {
                     case "0":
-                        Console.WriteLine(DisplayOrders(DisplayOrderbyDate09(_currentCustomer.Orders)));
+                        Console.WriteLine(DisplayOrders(DisplayOrderbyDate90(_cbl.GetAllOrderbyId(_currentCustomer.Id))));
                         ViewHistory = true;
                         break;
                     case "1":
-                        Console.WriteLine(DisplayOrders(DisplayOrderbyDate90(_currentCustomer.Orders)));
+                        Console.WriteLine(DisplayOrders(DisplayOrderbyDate09(_cbl.GetAllOrderbyId(_currentCustomer.Id))));
                         ViewHistory = true;
                         break;
                     case "2":
-                        Console.WriteLine(DisplayOrders(DisplayOrderbyCost09(_currentCustomer.Orders)));
+                        Console.WriteLine(DisplayOrders(DisplayOrderbyCost09(_cbl.GetAllOrderbyId(_currentCustomer.Id))));
                         ViewHistory = true;
                         break;
                     case "3":
-                        Console.WriteLine(DisplayOrders(DisplayOrderbyCost90(_currentCustomer.Orders)));
+                        Console.WriteLine(DisplayOrders(DisplayOrderbyCost90(_cbl.GetAllOrderbyId(_currentCustomer.Id))));
                         ViewHistory = true;
                         break;
                     case "<":
@@ -117,11 +126,12 @@ namespace P0_M.UI
                     sb.Append($"Order Number: {i+1}\n");
                     sb.Append($"Order Time: {customerOrders[i].Time}\n");
                     sb.Append($"Order Location: {customerOrders[i].Location}\n");
+                    
                     sb.Append($"Order Items: \n");
                     for(var j = 0; j<customerOrders[i].LineItems.Count;j++){
                         sb.Append($"Item Number: {j+1}\n");
-                        sb.Append($"Item Name: {customerOrders[i].LineItems[j].Item.Name}\n");
-                        sb.Append($"Item Price: {customerOrders[i].LineItems[j].Item.Price}\n");
+                        sb.Append($"Item Name: {customerOrders[i].LineItems[j].Name}\n");
+                        sb.Append($"Item Price: {customerOrders[i].LineItems[j].Price}\n");
                         sb.Append($"Item Quantity: {customerOrders[i].LineItems[j].Quantity}\n");
                     }
                     sb.Append("\n");

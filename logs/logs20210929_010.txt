@@ -1,0 +1,2 @@
+2021-09-29 11:06:16.634 -04:00 [INF] DB Refresh..
+2021-09-29 11:18:40.333 -04:00 [INF] Application Starting..

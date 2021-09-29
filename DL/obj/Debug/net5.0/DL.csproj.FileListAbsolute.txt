@@ -13,3 +13,6 @@ C:\Work2021\P0-M\DL\obj\Debug\net5.0\DL.csproj.CopyComplete
 C:\Work2021\P0-M\DL\obj\Debug\net5.0\DL.dll
 C:\Work2021\P0-M\DL\obj\Debug\net5.0\ref\DL.dll
 C:\Work2021\P0-M\DL\obj\Debug\net5.0\DL.pdb
+C:\Work2021\P0-M\DL\bin\Debug\net5.0\DL.runtimeconfig.json
+C:\Work2021\P0-M\DL\bin\Debug\net5.0\DL.runtimeconfig.dev.json
+C:\Work2021\P0-M\DL\obj\Debug\net5.0\DL.genruntimeconfig.cache

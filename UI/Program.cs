@@ -15,6 +15,8 @@ namespace P0_M.UI
 
             Log.Information("Application Starting..");
             new MainMenu().Start();
+            Log.Information("Application closing...");
+            Log.CloseAndFlush();
         }
     }
 }

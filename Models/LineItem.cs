@@ -3,21 +3,29 @@ namespace P0_M.Models
 {
     public class LineItem
     {
-        public Product Item{get;set;}
+        public string Name{get;set;}
+        public decimal Price{get;set;}
         public int Quantity{get;set;}
+        public int Id{get;set;}
+        public int OrderId{get;set;}
 
         public LineItem(){}
 
-        public LineItem(Product item){
-            this.Item = item;
+        public LineItem(string name, decimal price){
+            this.Name = name;
+            this.Price = price;
         }
 
-        public LineItem(Product item, int quantity):this(item){
+        public LineItem(string name, decimal price, int quantity):this(name,price){
             this.Quantity = quantity; 
         }
 
+        public LineItem(string name, decimal price, int quantity, int OrderId):this(name,price,quantity){
+            this.OrderId = OrderId;
+        }
+
         public override string ToString(){
-            return $"Item : [{Item}], Quantity : {Quantity}";
+            return $"Name : {Name}, Price : {Price}, Quantity : {Quantity}";
         }
     }
 }

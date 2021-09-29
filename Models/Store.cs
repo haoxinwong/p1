@@ -9,13 +9,14 @@ namespace P0_M.Models
         public string Name{get;set;}
 
         public string Address{get;set;}
-        public List<LineItem> Inventory{get;set;}
+        public List<Inventory> Inventory{get;set;}
         private StringBuilder _sb = new StringBuilder();
-        private List<Customer> OrderHistory{get;set;}
+
+        public int Id{get;set;}
 
         public Store(){}
 
-        public Store(string name,string address,List<LineItem> inventory){
+        public Store(string name,string address,List<Inventory> inventory){
             this.Name = name;
             this.Address = address;
             this.Inventory = inventory;
@@ -25,14 +26,11 @@ namespace P0_M.Models
             return $"Store name: {this.Name} \n Address: {this.Address}";
         }
 
-        public void AdjustInventory(List<LineItem>customerLineItem,List<int>itempos){
+        public void AdjustInventory(List<LineItem> customerLineItem,List<int> itempos){
             for (int i = 0; i < customerLineItem.Count; i++)
             {
                 Inventory[itempos[i]].Quantity = Inventory[itempos[i]].Quantity - customerLineItem[i].Quantity;
             }
         }
-
-
-
     }
 }

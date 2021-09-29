@@ -3,7 +3,7 @@ using P0_M.Models;
 using P0_M.BL;
 using P0_M.DL;
 using System.Collections.Generic;
-
+using Serilog;
 namespace P0_M.UI
 {
     public class StoresMenu:IMenu
@@ -58,7 +58,7 @@ namespace P0_M.UI
                             Console.WriteLine($"Unable to parse '{input}', reenter");
                             enterStoreNumber = false;
                         }
-                        if (result >= 0 & result <= allStores.Count){
+                        if (result >= 0 & result < allStores.Count){
                             GoToStoreMenu(allStores[result],_currentCustomer);
                         }else{
                             Console.WriteLine("Input Error, reenter");
@@ -71,7 +71,7 @@ namespace P0_M.UI
         }
 
         private void GoToStoreMenu(Store currentStore,Customer currentCustomer){
-            new StoreMenu(new StoreBL(new StoreDBRepo()), new CustomerBL(new CustomerDBRepo()),currentStore,currentCustomer);
+            MenuFactory.GetMenu("thatstore",currentStore,currentCustomer).Start();
         }
     }
 }

@@ -1,0 +1,2 @@
+2021-09-28 02:20:16.394 -04:00 [INF] Admin Here
+2021-09-28 02:31:17.766 -04:00 [INF] Application Starting..

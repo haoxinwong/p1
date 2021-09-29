@@ -21,10 +21,15 @@ namespace P0_M.UI
                 switch (input)
                 {
                     case "0":
-                        new CustomerLoginMenu(new CustomerBL(new CustomerDBRepo())).Start();
+                        MenuFactory.GetMenu("customerlogin").Start();
                         break;
                     case "1":
-                        Console.WriteLine("what's your name2");
+                        Console.WriteLine("Enter admin name:");
+                        string aname = Console.ReadLine();
+                        Console.WriteLine("Enter code:");
+                        string code = Console.ReadLine();
+                        MenuFactory.GetMenu("adminlogin",aname,code).Start();
+                        // Console.WriteLine("what's your name2");
                         break;
                     case "x":
                         Console.WriteLine("bye");

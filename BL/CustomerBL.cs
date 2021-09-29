@@ -23,5 +23,17 @@ namespace P0_M.BL
         public Customer Update(Customer customer){
             return _repo.Update(customer);
         }
+
+        public Order AddAOrder(Order order){
+            return _repo.AddAOrder(order);
+        }
+
+        public LineItem AddALineItem(LineItem li){
+            return _repo.AddALineItem(li);
+        }
+
+        public List<Order> GetAllOrderbyId(int i){
+            return _repo.GetAllOrderbyId(i);
+        }
     }
 }

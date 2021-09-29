@@ -24,5 +24,29 @@ namespace P0_M.BL
         public Store Update(Store store){
             return _repo.Update(store);
         }
+
+        public Store GetOneStoreById(int id){
+            return _repo.GetOneStoreById(id);
+        }
+
+        public Inventory UpdateInventory(Inventory i){
+            return _repo.UpdateInventory(i);
+        }
+
+        public Inventory UpdateInventory(Inventory i,string s){
+            return _repo.UpdateInventory(i,s);
+        }
+
+        public Inventory AddInventoryItem(Inventory i){
+            return _repo.AddInventoryItem(i);
+        }
+
+        public Inventory UpdateInventory2(Inventory i){
+            return _repo.UpdateInventory2(i);
+        }
+
+        public List<Order> GetAllOrderbyId(int i){
+            return _repo.GetAllOrderbyId(i);
+        }
     }
 }

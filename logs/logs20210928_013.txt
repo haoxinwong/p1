@@ -1,0 +1,4 @@
+2021-09-28 14:22:40.901 -04:00 [INF] Customer review profile
+2021-09-28 14:22:43.491 -04:00 [INF] Customer view order history
+2021-09-28 14:23:16.408 -04:00 [INF] Customer view order history
+2021-09-28 18:33:06.827 -04:00 [INF] Application Starting..
