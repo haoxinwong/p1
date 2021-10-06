@@ -20,6 +20,7 @@ namespace P0_M.UI
             bool exit = false;
             string input = "";
             int result = -1;
+
             List<Store> allStores = _sbl.GetAll();
             do
             {

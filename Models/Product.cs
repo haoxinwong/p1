@@ -1,6 +1,6 @@
 using System;
 
-namespace P0_M.Models
+namespace Models
 {
     public class Product
     {

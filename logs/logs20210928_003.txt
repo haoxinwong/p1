@@ -1,2 +1,0 @@
-2021-09-28 00:41:38.772 -04:00 [INF] Customer Here
-2021-09-28 02:11:42.638 -04:00 [INF] Application Starting..

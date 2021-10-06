@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "523HdxxS71Z8BfMMQTPu21sB9eZySJY/VSawhzn880/6/IYVtYfy+p/fExC0AmiKMi1MROzFJI3qCBa9UFLxoQ==",
+  "dgSpecHash": "YGdieAAZKyhbLnlg4B3sL8458sl883FIfLodTsPX35IUr++xgI3T1KaTMYSl+fuIo+J0f1M60hrxDLc08W78Vw==",
   "success": true,
-  "projectFilePath": "C:\\Work2021\\P0-M\\Models\\Models.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\Models\\Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\WarSpite\\.nuget\\packages\\serilog\\2.10.0\\serilog.2.10.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\serilog.sinks.console\\4.0.0\\serilog.sinks.console.4.0.0.nupkg.sha512",
+    "C:\\Users\\WarSpite\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

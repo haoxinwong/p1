@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using P0_M.Models;
+using Models;
 
 namespace DL.Entities
 {

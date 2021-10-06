@@ -11,7 +11,6 @@
           "DL": "1.0.0",
           "Microsoft.NET.Test.Sdk": "16.9.4",
           "Models": "1.0.0",
-          "UI": "1.0.0",
           "coverlet.collector": "3.0.2",
           "xunit": "2.4.1",
           "xunit.runner.visualstudio": "2.4.3"
@@ -197,17 +196,6 @@
           }
         }
       },
-      "Microsoft.Extensions.Configuration/2.0.0": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.0.17205"
-          }
-        }
-      },
       "Microsoft.Extensions.Configuration.Abstractions/5.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "5.0.0"
@@ -216,17 +204,6 @@
           "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.20.51904"
-          }
-        }
-      },
-      "Microsoft.Extensions.Configuration.Binder/2.0.0": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration": "2.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.0.17205"
           }
         }
       },
@@ -246,17 +223,6 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.20.51904"
-          }
-        }
-      },
-      "Microsoft.Extensions.DependencyModel/3.0.0": {
-        "dependencies": {
-          "System.Text.Json": "4.6.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.19.46305"
           }
         }
       },
@@ -291,20 +257,6 @@
           "lib/net5.0/Microsoft.Extensions.Options.dll": {
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.20.51904"
-          }
-        }
-      },
-      "Microsoft.Extensions.Options.ConfigurationExtensions/2.0.0": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "2.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
-          "Microsoft.Extensions.Options": "5.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.0.17205"
           }
         }
       },
@@ -732,6 +684,31 @@
           }
         }
       },
+      "Npgsql/5.0.10": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.6.0"
+        },
+        "runtime": {
+          "lib/net5.0/Npgsql.dll": {
+            "assemblyVersion": "5.0.10.0",
+            "fileVersion": "5.0.10.0"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/5.0.10": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.10",
+          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.10",
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.10",
+          "Npgsql": "5.0.10"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "assemblyVersion": "5.0.10.0",
+            "fileVersion": "5.0.10.0"
+          }
+        }
+      },
       "NuGet.Frameworks/5.0.0": {
         "runtime": {
           "lib/netstandard2.0/NuGet.Frameworks.dll": {
@@ -785,19 +762,6 @@
           "lib/netstandard2.1/Serilog.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.10.0.0"
-          }
-        }
-      },
-      "Serilog.Settings.Configuration/3.2.0": {
-        "dependencies": {
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "2.0.0",
-          "Serilog": "2.10.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Serilog.Settings.Configuration.dll": {
-            "assemblyVersion": "3.2.0.0",
-            "fileVersion": "3.2.0.0"
           }
         }
       },
@@ -1255,6 +1219,7 @@
           }
         }
       },
+      "System.Runtime.CompilerServices.Unsafe/4.6.0": {},
       "System.Runtime.Extensions/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -1388,7 +1353,6 @@
           "System.Text.Encoding": "4.3.0"
         }
       },
-      "System.Text.Json/4.6.0": {},
       "System.Text.RegularExpressions/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -1561,26 +1525,16 @@
         }
       },
       "xunit.runner.visualstudio/2.4.3": {},
-      "BL/1.0.0": {
-        "dependencies": {
-          "DL": "1.0.0",
-          "Models": "1.0.0",
-          "Serilog": "2.10.0",
-          "Serilog.Settings.Configuration": "3.2.0",
-          "Serilog.Sinks.Console": "4.0.0",
-          "Serilog.Sinks.File": "5.0.0"
-        },
-        "runtime": {
-          "BL.dll": {}
-        }
-      },
       "DL/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.10",
           "Microsoft.EntityFrameworkCore.Tools.DotNet": "2.0.3",
           "Models": "1.0.0",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.10",
           "Serilog": "2.10.0",
+          "Serilog.Sinks.Console": "4.0.0",
+          "Serilog.Sinks.File": "5.0.0",
           "System.Data.SqlClient": "4.8.3",
           "System.Linq": "4.3.0"
         },
@@ -1591,20 +1545,6 @@
       "Models/1.0.0": {
         "runtime": {
           "Models.dll": {}
-        }
-      },
-      "UI/1.0.0": {
-        "dependencies": {
-          "BL": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "5.0.10",
-          "Models": "1.0.0",
-          "Serilog": "2.10.0",
-          "Serilog.Settings.Configuration": "3.2.0",
-          "Serilog.Sinks.Console": "4.0.0",
-          "Serilog.Sinks.File": "5.0.0"
-        },
-        "runtime": {
-          "UI.dll": {}
         }
       }
     }
@@ -1706,26 +1646,12 @@
       "path": "microsoft.extensions.caching.memory/5.0.0",
       "hashPath": "microsoft.extensions.caching.memory.5.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.Configuration/2.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-SsI4RqI8EH00+cYO96tbftlh87sNUv1eeyuBU1XZdQkG0RrHAOjWgl7P0FoLeTSMXJpOnfweeOWj2d1/5H3FxA==",
-      "path": "microsoft.extensions.configuration/2.0.0",
-      "hashPath": "microsoft.extensions.configuration.2.0.0.nupkg.sha512"
-    },
     "Microsoft.Extensions.Configuration.Abstractions/5.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-ETjSBHMp3OAZ4HxGQYpwyGsD8Sw5FegQXphi0rpoGMT74S4+I2mm7XJEswwn59XAaKOzC15oDSOWEE8SzDCd6Q==",
       "path": "microsoft.extensions.configuration.abstractions/5.0.0",
       "hashPath": "microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Configuration.Binder/2.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-IznHHzGUtrdpuQqIUdmzF6TYPcsYHONhHh3o9dGp39sX/9Zfmt476UnhvU0UhXgJnXXAikt/MpN6AuSLCCMdEQ==",
-      "path": "microsoft.extensions.configuration.binder/2.0.0",
-      "hashPath": "microsoft.extensions.configuration.binder.2.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/5.0.2": {
       "type": "package",
@@ -1740,13 +1666,6 @@
       "sha512": "sha512-ORj7Zh81gC69TyvmcUm9tSzytcy8AVousi+IVRAI8nLieQjOFryRusSFh7+aLk16FN9pQNqJAiMd7BTKINK0kA==",
       "path": "microsoft.extensions.dependencyinjection.abstractions/5.0.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512"
-    },
-    "Microsoft.Extensions.DependencyModel/3.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Iaectmzg9Dc4ZbKX/FurrRjgO/I8rTumL5UU+Uube6vZuGetcnXoIgTA94RthFWePhdMVm8MMhVFJZdbzMsdyQ==",
-      "path": "microsoft.extensions.dependencymodel/3.0.0",
-      "hashPath": "microsoft.extensions.dependencymodel.3.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/5.0.0": {
       "type": "package",
@@ -1768,13 +1687,6 @@
       "sha512": "sha512-CBvR92TCJ5uBIdd9/HzDSrxYak+0W/3+yxrNg8Qm6Bmrkh5L+nu6m3WeazQehcZ5q1/6dDA7J5YdQjim0165zg==",
       "path": "microsoft.extensions.options/5.0.0",
       "hashPath": "microsoft.extensions.options.5.0.0.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Options.ConfigurationExtensions/2.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Y/lGICwO27fCkQRK3tZseVzFjZaxfGmui990E67sB4MuiPzdJHnJDS/BeYWrHShSSBgCl4KyKRx4ux686fftPg==",
-      "path": "microsoft.extensions.options.configurationextensions/2.0.0",
-      "hashPath": "microsoft.extensions.options.configurationextensions.2.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Primitives/5.0.0": {
       "type": "package",
@@ -1916,6 +1828,20 @@
       "path": "newtonsoft.json/10.0.1",
       "hashPath": "newtonsoft.json.10.0.1.nupkg.sha512"
     },
+    "Npgsql/5.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3TB9le3lfu5Hc+LSHqMCVLcA+qUPg1enyM4+u0pMUBmNNGwc0sVPrnfnys2TVZIdkF8Aww/AZlnJHDsnEGqD0g==",
+      "path": "npgsql/5.0.10",
+      "hashPath": "npgsql.5.0.10.nupkg.sha512"
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/5.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3K+YNZFdwMcTxY8aW9m6BHyzPce/WFdDKPESP4uCXk6xNS6Ujq6zhi7+KXkzb7iNB0OYretEuF3ezqkk4ZnJMg==",
+      "path": "npgsql.entityframeworkcore.postgresql/5.0.10",
+      "hashPath": "npgsql.entityframeworkcore.postgresql.5.0.10.nupkg.sha512"
+    },
     "NuGet.Frameworks/5.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1964,13 +1890,6 @@
       "sha512": "sha512-+QX0hmf37a0/OZLxM3wL7V6/ADvC1XihXN4Kq/p6d8lCPfgkRdiuhbWlMaFjR9Av0dy5F0+MBeDmDdRZN/YwQA==",
       "path": "serilog/2.10.0",
       "hashPath": "serilog.2.10.0.nupkg.sha512"
-    },
-    "Serilog.Settings.Configuration/3.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-yLWXbqMkXdmAUI7L/ru8fSx0Vo0cYlOpQcs0/vi13muZooLUBDYb9VHN+s5J0EGZ5IDzXIZLhybrEILE/2GMsQ==",
-      "path": "serilog.settings.configuration/3.2.0",
-      "hashPath": "serilog.settings.configuration.3.2.0.nupkg.sha512"
     },
     "Serilog.Sinks.Console/4.0.0": {
       "type": "package",
@@ -2273,6 +2192,13 @@
       "path": "system.runtime.caching/4.7.0",
       "hashPath": "system.runtime.caching.4.7.0.nupkg.sha512"
     },
+    "System.Runtime.CompilerServices.Unsafe/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HxozeSlipUK7dAroTYwIcGwKDeOVpQnJlpVaOkBz7CM4TsE5b/tKlQBZecTjh6FzcSbxndYaxxpsBMz+wMJeyw==",
+      "path": "system.runtime.compilerservices.unsafe/4.6.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
+    },
     "System.Runtime.Extensions/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -2391,13 +2317,6 @@
       "sha512": "sha512-YVMK0Bt/A43RmwizJoZ22ei2nmrhobgeiYwFzC4YAN+nue8RF6djXDMog0UCn+brerQoYVyaS+ghy9P/MUVcmw==",
       "path": "system.text.encoding.extensions/4.3.0",
       "hashPath": "system.text.encoding.extensions.4.3.0.nupkg.sha512"
-    },
-    "System.Text.Json/4.6.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-4F8Xe+JIkVoDJ8hDAZ7HqLkjctN/6WItJIzQaifBwClC7wmoLSda/Sv2i6i1kycqDb3hWF4JCVbpAweyOKHEUA==",
-      "path": "system.text.json/4.6.0",
-      "hashPath": "system.text.json.4.6.0.nupkg.sha512"
     },
     "System.Text.RegularExpressions/4.3.0": {
       "type": "package",
@@ -2518,22 +2437,12 @@
       "path": "xunit.runner.visualstudio/2.4.3",
       "hashPath": "xunit.runner.visualstudio.2.4.3.nupkg.sha512"
     },
-    "BL/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "DL/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
     "Models/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "UI/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

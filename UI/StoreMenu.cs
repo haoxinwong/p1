@@ -17,7 +17,6 @@ namespace P0_M.UI
         private List<int> _itemPos;
 
         public StoreMenu(StoreBL sbl, CustomerBL cbl, Store currentStore, Customer currentCustomer){
-            Console.WriteLine("I M Here");
             _sbl = sbl;
             _cbl = cbl;
             _currentStore = currentStore;
@@ -35,7 +34,7 @@ namespace P0_M.UI
         public void Start(){
             bool exit  = false;
             string input = "";
-            
+
             do
             {
                 Console.WriteLine($"This is {_currentStore.Name} Menu");

@@ -1,12 +1,12 @@
 using System.Collections.Generic;
-using P0_M.Models;
+using Models;
 using System;
-using P0_M.DL;
+using DL;
 
 
-namespace P0_M.BL
+namespace BL
 {
-    public class StoreBL:IBL
+    public class StoreBL
     {
         private StoreDBRepo _repo;
 

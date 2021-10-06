@@ -1,14 +1,76 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
+using Serilog;
 
-namespace P0_M.Models
+namespace Models
 {
     public class Store
     {
-        public string Name{get;set;}
 
-        public string Address{get;set;}
+        public string Name { get; set; }
+        /*private string _name;
+
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                Regex pattern = new Regex("^[a-zA-Z0-9 !?']+$");
+
+                if (value?.Length == 0)
+                {
+                    InputInvalidException e = new InputInvalidException("Restaurant name can't be empty");
+                    Log.Warning(e.Message);
+                    throw e;
+                }
+                else if (!pattern.IsMatch(value))
+                {
+                    throw new InputInvalidException("Store name can only have alphanumeric characters, !, and ?.");
+                }
+                else
+                {
+                    _name = value;
+                }
+            }
+        }*/
+
+        public string Address { get; set; }
+
+        /*private string _Address;
+
+        public string Address
+        {
+            get
+            {
+                return _Address;
+            }
+            set
+            {
+                Regex pattern = new Regex("^[a-zA-Z0-9 ]+$");
+
+                if (value?.Length == 0)
+                {
+                    InputInvalidException e = new InputInvalidException("Restaurant name can't be empty");
+                    Log.Warning(e.Message);
+                    throw e;
+                }
+                else if (!pattern.IsMatch(value))
+                {
+                    throw new InputInvalidException("Store address can only have alphanumeric characters, and -");
+                }
+                else
+                {
+                    _name = value;
+                }
+
+            }
+        }*/
         public List<Inventory> Inventory{get;set;}
         private StringBuilder _sb = new StringBuilder();
 
@@ -20,6 +82,13 @@ namespace P0_M.Models
             this.Name = name;
             this.Address = address;
             this.Inventory = inventory;
+        }
+
+        public Store(string name, string address)
+        {
+            this.Name = name;
+            this.Address = address;
+            this.Inventory = new List<Inventory>();
         }
 
         public override string ToString(){

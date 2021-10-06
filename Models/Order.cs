@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace P0_M.Models
+namespace Models
 {
     public class Order
     {
@@ -10,7 +10,7 @@ namespace P0_M.Models
         public List<LineItem> LineItems{get;set;}
         public DateTime Time{get;set;}
         public string Location{get;set;}
-        public int LocationId{get;set;}
+        public int StoreId{get;set;}
         public int CustomerId{get;set;}
         public Order(){}
 
@@ -19,11 +19,11 @@ namespace P0_M.Models
             this.Time = DateTime.Now;
             this.Total = calTotal();
         }
-        public Order(List<LineItem>lineItems, string location, int LocationID,int CustomerId){
+        public Order(List<LineItem>lineItems, string location, int LocationID, int CustomerId){
             this.LineItems = lineItems;
             this.Location = location;
             this.Time = DateTime.Now;
-            this.LocationId = LocationID;
+            this.StoreId = LocationID;
             this.CustomerId = CustomerId;
             this.Total = calTotal();
         }
@@ -32,7 +32,7 @@ namespace P0_M.Models
             this.LineItems = lineItems;
             this.Location = location;
             this.Time = time;
-            this.LocationId = LocationID;
+            this.StoreId = LocationID;
             this.CustomerId = CustomerId;
             this.Total = calTotal();
         }

@@ -1,1 +1,0 @@
-2021-09-28 00:04:13.500 -04:00 [INF] Application Starting..

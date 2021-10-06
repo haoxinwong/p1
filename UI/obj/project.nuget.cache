@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "K+PJcSHBtmrI5hbH/WB87OgoaPXpPSiq4gfl9liHKPAdsKMKWevpR1DjeVJX894zhgeD+dY+VICwPCpIlKicgg==",
+  "dgSpecHash": "mOWx1jp/hBQJcYiG2UPvU3SH2lcDgHLrj2jG7n4hBKOQ/LMFVKlkO3+5piq0f3KbmIQCyexDTM9RphwXUNj28g==",
   "success": true,
-  "projectFilePath": "C:\\Work2021\\P0-M\\ui\\UI.csproj",
+  "projectFilePath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\UI\\UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\WarSpite\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\WarSpite\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

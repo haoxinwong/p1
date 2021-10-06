@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using P0_M.Models;
+using Models;
 using System.IO;
 using System.Text.Json;
 using System;
 using System.Linq;
 
-namespace P0_M.DL
+namespace DL
 {
     public class CustomerDBRepo2
     {

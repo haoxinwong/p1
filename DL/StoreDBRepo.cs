@@ -2,18 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Model = P0_M.Models;
-using Entity = DL.Entities;
+using Models;
+
 using Microsoft.EntityFrameworkCore;
 using System.Data.SqlClient;
 
-namespace P0_M.DL
+namespace DL
 {
 
-    public class StoreDBRepo:IRepo
+    public class StoreDBRepo
     {
-        private Entity.P0Context _context;
-        public StoreDBRepo(Entity.P0Context context){
+        private P0DBContext _context;
+        public StoreDBRepo(P0DBContext context){
             _context = context;
         }
 
@@ -28,8 +28,8 @@ namespace P0_M.DL
         //     ).ToList();
         // }
 
-        public Model.Inventory UpdateInventory(Model.Inventory inventory){
-            Entity.Inventory invenToUpdate = new Entity.Inventory(){
+        public Inventory UpdateInventory(Inventory inventory){
+            Inventory invenToUpdate = new Inventory(){
                 // Id = inventory.Id,
                 Name = inventory.Name,
                 Price = inventory.Price,
@@ -41,8 +41,8 @@ namespace P0_M.DL
             _context.SaveChanges();
             _context.ChangeTracker.Clear();
 
-            return new Model.Inventory() {
-                // Id = invenToUpdate.Id,
+            return new Inventory() {
+                Id = invenToUpdate.Id,
                 Name = invenToUpdate.Name,
                 Price = (decimal)invenToUpdate.Price,
                 Quantity = (int)invenToUpdate.Quantity,
@@ -50,7 +50,7 @@ namespace P0_M.DL
             };
         }
 
-        public Model.Inventory UpdateInventory(Model.Inventory inventory,string str){
+        public Inventory UpdateInventory(Inventory inventory,string str){
             string constr = "Server=tcp:mp0server.database.windows.net,1433;Initial Catalog=P0;Persist Security Info=False;User ID=hao;Password=Zm111111;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection con = new SqlConnection(constr);
             con.Open();
@@ -61,8 +61,8 @@ namespace P0_M.DL
             return inventory;
         }
 
-        public Model.Inventory UpdateInventory2(Model.Inventory inventory){
-            Entity.Inventory invToUpdate = new Entity.Inventory(){
+        public Inventory UpdateInventory2(Inventory inventory){
+            Inventory invToUpdate = new Inventory(){
                 Id = inventory.Id,
                 Price = (decimal)inventory.Price,
                 Name = inventory.Name,
@@ -74,7 +74,7 @@ namespace P0_M.DL
             _context.SaveChanges();
             _context.ChangeTracker.Clear();
 
-            return new Model.Inventory() {
+            return new Inventory() {
                 Id = invToUpdate.Id,
                 Price = (decimal)invToUpdate.Price,
                 Name = invToUpdate.Name,
@@ -91,12 +91,12 @@ namespace P0_M.DL
             // return inventory;
         }
 
-        public List<Model.Store> GetAll(){
+        public List<Store> GetAll(){
 
             // Entity.Store stores= _context.Stores.Include(r => r.Inventory);
             
             return _context.Stores.Select(
-                store => new Model.Store(){
+                store => new Store(){
                     Id = store.Id,
                     Name = store.Name,
                     Address = store.Address
@@ -109,9 +109,9 @@ namespace P0_M.DL
             ).ToList();
         }
 
-        public Model.Store GetOneStoreById(int id)
+        public Store GetOneStoreById(int id)
         {
-            Entity.Store stoById = 
+            Store stoById = 
                 _context.Stores
                 //this include method joins reviews table with the restaurant table
                 //and grabs all reviews that references the selected restaurant
@@ -120,11 +120,11 @@ namespace P0_M.DL
                 .Include(r => r.Inventory)
                 .FirstOrDefault(r => r.Id == id);
 
-            return new Model.Store() {
+            return new Store() {
                 Id = stoById.Id,
                 Name = stoById.Name,
                 Address = stoById.Address,
-                Inventory = stoById.Inventory.Select(r => new Model.Inventory(){
+                Inventory = stoById.Inventory.Select(r => new Inventory(){
                         Id = r.Id,
                         Name = r.Name,
                         Price = (decimal)r.Price,
@@ -134,8 +134,8 @@ namespace P0_M.DL
             };
         }
 
-        public Model.Store Update(Model.Store storeToUpdate){
-            Entity.Store stoToUpdate = new Entity.Store(){
+        public Store Update(Store storeToUpdate){
+            Store stoToUpdate = new Store(){
                 Id = storeToUpdate.Id,
                 Name = storeToUpdate.Name,
                 Address = storeToUpdate.Address
@@ -145,15 +145,15 @@ namespace P0_M.DL
             _context.SaveChanges();
             _context.ChangeTracker.Clear();
 
-            return new Model.Store() {
+            return new Store() {
                 Id = stoToUpdate.Id,
                 Name = stoToUpdate.Name,
                 Address = stoToUpdate.Address
             };
         }
 
-        public Model.Inventory AddInventoryItem(Model.Inventory inv){
-            Entity.Inventory invToAdd = new Entity.Inventory(){
+        public Inventory AddInventoryItem(Inventory inv){
+            Inventory invToAdd = new Inventory() {
                 Name = inv.Name,
                 Price = inv.Price,
                 Quantity = inv.Quantity,
@@ -164,7 +164,7 @@ namespace P0_M.DL
 
             _context.ChangeTracker.Clear();
 
-            return new Model.Inventory(){
+            return new Inventory(){
                 Id = invToAdd.Id,
                 Name = invToAdd.Name,
                 Price = (decimal)invToAdd.Price,
@@ -172,8 +172,8 @@ namespace P0_M.DL
                 StoreId = (int)invToAdd.StoreId
             };
         }
-        public Model.Store Add(Model.Store sto){
-            Entity.Store stoToAdd = new Entity.Store(){
+        public Store Add(Store sto){
+            Store stoToAdd = new Store(){
                 Id = sto.Id,
                 Name = sto.Name,
                 Address = sto.Address ?? ""
@@ -185,15 +185,15 @@ namespace P0_M.DL
 
             _context.ChangeTracker.Clear();
 
-            return new Model.Store(){
+            return new Store(){
                 Id = stoToAdd.Id,
                 Name = stoToAdd.Name,
                 Address = stoToAdd.Address
             };
         }
 
-        public List<Model.Order> GetAllOrderbyId(int id){
-            List <Model.Order> orderData = new List<Model.Order>();
+        public List<Order> GetAllOrderbyId(int id){
+            List <Order> orderData = new List<Order>();
             using(SqlConnection connection = new SqlConnection("Server=tcp:mp0server.database.windows.net,1433;Initial Catalog=P0;Persist Security Info=False;User ID=hao;Password=Zm111111;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 connection.Open();
@@ -206,18 +206,18 @@ namespace P0_M.DL
                         {
                             // st<LineItem>lineItems, string location, int LocationID,int Custome
                             string query2 = $"SELECT Name,Price,Quantity,Id,OrderId FROM CustomerLineItems WHERE OrderId={reader[0]}";
-                            List<Model.LineItem> lineitemData = new List<Model.LineItem>();
+                            List<LineItem> lineitemData = new List<LineItem>();
                             using(SqlCommand command2 = new SqlCommand(query2, connection))
                             {
                                 using (SqlDataReader reader2 = command2.ExecuteReader())
                                 {
                                     while (reader2.Read())
                                     {
-                                        lineitemData.Add(new Model.LineItem(reader2.GetString(0),reader2.GetDecimal(1),reader2.GetInt32(2),reader2.GetInt32(4)));
+                                        lineitemData.Add(new LineItem(reader2.GetString(0),reader2.GetDecimal(1),reader2.GetInt32(2),reader2.GetInt32(4)));
                                     }
                                 }
                             }
-                            orderData.Add(new Model.Order(lineitemData,reader.GetString(3),reader.GetInt32(4),reader.GetInt32(5),reader.GetDateTime(2)));
+                            orderData.Add(new Order(lineitemData,reader.GetString(3),reader.GetInt32(4),reader.GetInt32(5),reader.GetDateTime(2)));
                         }         
                     }
                 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Work2021\\P0-M\\DL\\DL.csproj": {}
+    "C:\\Users\\WarSpite\\source\\repos\\P0-M\\DL\\DL.csproj": {}
   },
   "projects": {
-    "C:\\Work2021\\P0-M\\DL\\DL.csproj": {
+    "C:\\Users\\WarSpite\\source\\repos\\P0-M\\DL\\DL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Work2021\\P0-M\\DL\\DL.csproj",
+        "projectUniqueName": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\DL\\DL.csproj",
         "projectName": "DL",
-        "projectPath": "C:\\Work2021\\P0-M\\DL\\DL.csproj",
+        "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\DL\\DL.csproj",
         "packagesPath": "C:\\Users\\WarSpite\\.nuget\\packages\\",
-        "outputPath": "C:\\Work2021\\P0-M\\DL\\obj\\",
+        "outputPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\DL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\WarSpite\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Work2021\\P0-M\\Models\\Models.csproj": {
-                "projectPath": "C:\\Work2021\\P0-M\\Models\\Models.csproj"
+              "C:\\Users\\WarSpite\\source\\repos\\P0-M\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\Models\\Models.csproj"
               }
             }
           }
@@ -68,9 +68,21 @@
               "target": "Package",
               "version": "[2.0.3, )"
             },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
             "Serilog": {
               "target": "Package",
               "version": "[2.10.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
@@ -100,14 +112,14 @@
         }
       }
     },
-    "C:\\Work2021\\P0-M\\Models\\Models.csproj": {
+    "C:\\Users\\WarSpite\\source\\repos\\P0-M\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Work2021\\P0-M\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Work2021\\P0-M\\Models\\Models.csproj",
+        "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\Models\\Models.csproj",
         "packagesPath": "C:\\Users\\WarSpite\\.nuget\\packages\\",
-        "outputPath": "C:\\Work2021\\P0-M\\Models\\obj\\",
+        "outputPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\WarSpite\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -135,6 +147,20 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.10.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

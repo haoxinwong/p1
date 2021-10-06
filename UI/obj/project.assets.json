@@ -1872,7 +1872,7 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "BL/1.0.0": {
+      "Bl/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
@@ -1884,10 +1884,10 @@
           "Serilog.Sinks.File": "5.0.0"
         },
         "compile": {
-          "bin/placeholder/BL.dll": {}
+          "bin/placeholder/Bl.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BL.dll": {}
+          "bin/placeholder/Bl.dll": {}
         }
       },
       "DL/1.0.0": {
@@ -6953,10 +6953,10 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "BL/1.0.0": {
+    "Bl/1.0.0": {
       "type": "project",
-      "path": "../BL/BL.csproj",
-      "msbuildProject": "../BL/BL.csproj"
+      "path": "../BL/Bl.csproj",
+      "msbuildProject": "../BL/Bl.csproj"
     },
     "DL/1.0.0": {
       "type": "project",
@@ -6971,7 +6971,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "BL >= 1.0.0",
+      "Bl >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.10",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.10",
       "Models >= 1.0.0",
@@ -6987,11 +6987,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Work2021\\P0-M\\ui\\UI.csproj",
+      "projectUniqueName": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\UI\\UI.csproj",
       "projectName": "UI",
-      "projectPath": "C:\\Work2021\\P0-M\\ui\\UI.csproj",
+      "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\UI\\UI.csproj",
       "packagesPath": "C:\\Users\\WarSpite\\.nuget\\packages\\",
-      "outputPath": "C:\\Work2021\\P0-M\\ui\\obj\\",
+      "outputPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\WarSpite\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7008,11 +7008,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Work2021\\P0-M\\BL\\BL.csproj": {
-              "projectPath": "C:\\Work2021\\P0-M\\BL\\BL.csproj"
+            "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\BL.csproj": {
+              "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\BL.csproj"
             },
-            "C:\\Work2021\\P0-M\\Models\\Models.csproj": {
-              "projectPath": "C:\\Work2021\\P0-M\\Models\\Models.csproj"
+            "C:\\Users\\WarSpite\\source\\repos\\P0-M\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\Models\\Models.csproj"
             }
           }
         }
