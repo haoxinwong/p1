@@ -160,8 +160,11 @@ namespace WebUI.Controllers
             {
                 Response.Cookies.Append("AdminHistoryStoreId", id + "");
             }
+            if(Request.Cookies["AdminHistoryStoreId"] != null)
+            {
+                orders = _bl.GetAllOrderbyStoreId(Int32.Parse(Request.Cookies["AdminHistoryStoreId"])).ToList();
+            }
             
-            orders = _bl.GetAllOrderbyStoreId(Int32.Parse(Request.Cookies["AdminHistoryStoreId"])).ToList();
             if (Request.Cookies["AdminStoreHistoryOrder"] != null)
             {
                 ViewBag.Sorder = Request.Cookies["AdminStoreHistoryOrder"];
