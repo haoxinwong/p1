@@ -156,7 +156,7 @@ namespace WebUI.Controllers
                 Response.Cookies.Append("AdminHistoryStoreId", id + "");
                 
             }
-            else if(Request.Cookies["AdminHistoryStoreId"] == null && id!=0)
+            if(Request.Cookies["AdminHistoryStoreId"] == null)
             {
                 Response.Cookies.Append("AdminHistoryStoreId", id + "");
             }
