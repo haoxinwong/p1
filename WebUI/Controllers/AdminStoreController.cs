@@ -126,7 +126,7 @@ namespace WebUI.Controllers
 
         public ActionResult Inventory(int id)
         {
-            if (Request.Cookies["AdminStoreId"] != null)
+            if (Request.Cookies["AdminStoreId"] != null&&id!=0)
             {
                 Response.Cookies.Delete("AdminStoreId");
                 Response.Cookies.Append("AdminStoreId", id + "");
@@ -136,7 +136,7 @@ namespace WebUI.Controllers
                 inventory = _bl.GetOneStoreById(Int32.Parse(Request.Cookies["AdminStoreId"])).Inventory.Select(r => new InventoryVM(r)).ToList();
                 return View(inventory);
             }
-            else
+            else if(Request.Cookies["AdminStoreId"] == null)
             {
                 Response.Cookies.Append("AdminStoreId", id + "");
             }
@@ -149,20 +149,18 @@ namespace WebUI.Controllers
         {
             
             List<Order> orders = new List<Order>();
-            if (Request.Cookies["AdminHistoryStoreId"] != null && id!= 0)
+
+            if (Request.Cookies["AdminHistoryStoreId"] != null && id != 0)
             {
                 Response.Cookies.Delete("AdminHistoryStoreId");
                 Response.Cookies.Append("AdminHistoryStoreId", id + "");
                 
             }
-            else if (id == 0)
-            {
-
-            }
-            else
+            else if(Request.Cookies["AdminHistoryStoreId"] == null)
             {
                 Response.Cookies.Append("AdminHistoryStoreId", id + "");
             }
+            
             orders = _bl.GetAllOrderbyStoreId(Int32.Parse(Request.Cookies["AdminHistoryStoreId"])).ToList();
             if (Request.Cookies["AdminStoreHistoryOrder"] != null)
             {
