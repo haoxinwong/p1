@@ -16,10 +16,11 @@ namespace WebUI.Models
             this.Name = customer.Name;
             this.Address = customer.Address;
             this.PhoneNumber = customer.PhoneNumber;
+            
         }
         public int Id { get; set; }
 
-        [Display(Name = "Store Name")]
+        [Display(Name = "Customer Name")]
         [Required]
         [RegularExpression("^[a-zA-Z0-9 !?']+$", ErrorMessage = "customer name can only have alphanumeric characters, !, and ?.")]
         public string Name { get; set; }
@@ -32,7 +33,7 @@ namespace WebUI.Models
         [Required]
         [RegularExpression(@"^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$", ErrorMessage = "customer phone number can only have 10 numbers")]
         public string PhoneNumber { get; set; }
-        public List<Order> Orders { get; set; }
+        public List<OrderVM> Orders { get; set; }
 
         public Customer ToModel()
         {

@@ -13,6 +13,18 @@ namespace BL
             _repo = repo;
         }
 
+        public Inventory GetOneInventory(int id)
+        {
+            return _repo.GetOneInventory(id);
+        }
+        public void RemoveInventory(int id)
+        {
+             _repo.RemoveInventory(id);
+        }
+        public Customer GetOneCustomerById(int custID)
+        {
+            return _repo.GetOneCustomerById(custID);
+        }
         public List<Customer> GetAll(){
             return _repo.GetAll();
         }
@@ -60,9 +72,13 @@ namespace BL
             return _repo.UpdateInventory(i);
         }
 
-        public Inventory UpdateInventory(Inventory i, string s)
+        public void InventorToUpdate(List<Inventory> items)
         {
-            return _repo.UpdateInventory(i, s);
+            _repo.InventorToUpdate(items);
+        }
+        public Order GetOneOrderbyId(int id)
+        {
+            return _repo.GetOneOrderbyId(id);
         }
 
         public Inventory AddInventoryItem(Inventory i)

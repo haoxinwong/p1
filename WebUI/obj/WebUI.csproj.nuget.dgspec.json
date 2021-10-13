@@ -4,12 +4,12 @@
     "C:\\Users\\WarSpite\\source\\repos\\P0-M\\WebUI\\WebUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\Bl.csproj": {
+    "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\Bl.csproj",
-        "projectName": "Bl",
-        "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\Bl.csproj",
+        "projectUniqueName": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\BL.csproj",
+        "projectName": "BL",
+        "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\BL.csproj",
         "packagesPath": "C:\\Users\\WarSpite\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\obj\\",
         "projectStyle": "PackageReference",
@@ -283,8 +283,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\Bl.csproj": {
-                "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\Bl.csproj"
+              "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\BL.csproj": {
+                "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\BL.csproj"
               },
               "C:\\Users\\WarSpite\\source\\repos\\P0-M\\DL\\DL.csproj": {
                 "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\DL\\DL.csproj"

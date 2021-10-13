@@ -26,6 +26,7 @@ namespace WebUI
             options.UseNpgsql(Configuration.GetConnectionString("P0DB")));
             services.AddScoped<IRepo, CustomerDBRepo>();
             services.AddScoped<IBL, CustomerBL>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

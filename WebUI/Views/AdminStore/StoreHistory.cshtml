@@ -1,0 +1,90 @@
+﻿@model IEnumerable<WebUI.Models.OrderVM>
+
+@{
+    ViewData["Title"] = "StoreHistory";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    List<SelectListItem> listItems = new List<SelectListItem>();
+
+    listItems.Add(new SelectListItem
+    {
+        Text = "TimeOldestToLastest",
+        Value = "TimeOldestToLastest",
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "TimeLastestToOldest",
+        Value = "TimeLastestToOldest",
+
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "CostLowestToHighest",
+        Value = "CostLowestToHighest"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "CostHighestToLowest",
+        Value = "CostHighestToLowest"
+    });
+    foreach (SelectListItem listItem in listItems)
+    {
+        listItem.Selected = listItem.Value.Contains(ViewBag.Sorder);
+    }
+}
+
+<h1>StoreHistory</h1>
+<br />
+<br />
+@using (Html.BeginForm("HistoryOrder", "AdminStore"))
+{
+
+    @Html.DropDownList("selectedBatchId", listItems, new
+    {
+        title = "Order By",
+        onchange = "submit();"
+    });
+
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+</div>
+<div>
+    <div>
+        <a asp-action="Index">Back</a>
+    </div>
+</div>
+

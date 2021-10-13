@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\Bl.csproj": {}
+    "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\BL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\Bl.csproj": {
+    "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\Bl.csproj",
-        "projectName": "Bl",
-        "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\Bl.csproj",
+        "projectUniqueName": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\BL.csproj",
+        "projectName": "BL",
+        "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\BL.csproj",
         "packagesPath": "C:\\Users\\WarSpite\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\obj\\",
         "projectStyle": "PackageReference",

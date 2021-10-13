@@ -1,0 +1,122 @@
+﻿@model WebUI.Models.CustomerVM
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+    List<SelectListItem> listItems = new List<SelectListItem>();
+
+    listItems.Add(new SelectListItem
+    {
+        Text = "TimeOldestToLastest",
+        Value = "TimeOldestToLastest",
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "TimeLastestToOldest",
+        Value = "TimeLastestToOldest",
+
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "CostLowestToHighest",
+        Value = "CostLowestToHighest"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "CostHighestToLowest",
+        Value = "CostHighestToLowest"
+    });
+    foreach (SelectListItem listItem in listItems)
+    {
+        listItem.Selected = listItem.Value.Contains(ViewBag.order);
+    }
+}
+
+<h1>Index</h1>
+
+<div>
+    <h4>CustomerVM</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+    </dl>
+
+    <br />
+    <br />
+    @using (Html.BeginForm("HistoryOrder", "CustomerHome"))
+    {
+
+        @Html.DropDownList("selectedBatchId", listItems, new
+        {
+            title = "Order By",
+            onchange = "submit();"
+        });
+
+    }
+    <br />
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Orders[0].Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Orders[0].Time)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Orders[0].Total)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Orders)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Total)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+<div>
+
+</div>

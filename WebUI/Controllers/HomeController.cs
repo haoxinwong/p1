@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using WebUI.Models;
 using BL;
 using Microsoft.AspNetCore.Http;
+using Models;
+
+
 
 namespace WebUI.Controllers
 {
@@ -15,11 +18,14 @@ namespace WebUI.Controllers
     {
         private IBL _bl;
         private CustomerVM currentCustomer = new CustomerVM();
+        /*private string _newcustomer = "false";*/
+
         public HomeController(IBL bl)
         {
             _bl = bl;
         }
 
+ 
         public IActionResult Index()
         {
             return View();
@@ -27,22 +33,6 @@ namespace WebUI.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
-        }
-        // GET: StoreController/Details/name
-        public ActionResult Details(string name)
-        {
-            List<CustomerVM> allCustomer = _bl.GetAll().Select(r => new CustomerVM(r)).ToList();
-            
-            foreach (CustomerVM customer in allCustomer)
-            {
-                if (customer.Name.Equals(name))
-                {
-                    currentCustomer = customer;
-                    
-                }
-            }
-
             return View();
         }
 

@@ -1,0 +1,17 @@
+C:\Users\WarSpite\source\repos\P0-M\BL\bin\Release\net5.0\Bl.deps.json
+C:\Users\WarSpite\source\repos\P0-M\BL\bin\Release\net5.0\Bl.dll
+C:\Users\WarSpite\source\repos\P0-M\BL\bin\Release\net5.0\ref\Bl.dll
+C:\Users\WarSpite\source\repos\P0-M\BL\bin\Release\net5.0\Bl.pdb
+C:\Users\WarSpite\source\repos\P0-M\BL\bin\Release\net5.0\DL.dll
+C:\Users\WarSpite\source\repos\P0-M\BL\bin\Release\net5.0\Models.dll
+C:\Users\WarSpite\source\repos\P0-M\BL\bin\Release\net5.0\DL.pdb
+C:\Users\WarSpite\source\repos\P0-M\BL\bin\Release\net5.0\Models.pdb
+C:\Users\WarSpite\source\repos\P0-M\BL\obj\Release\net5.0\Bl.csproj.AssemblyReference.cache
+C:\Users\WarSpite\source\repos\P0-M\BL\obj\Release\net5.0\Bl.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WarSpite\source\repos\P0-M\BL\obj\Release\net5.0\Bl.AssemblyInfoInputs.cache
+C:\Users\WarSpite\source\repos\P0-M\BL\obj\Release\net5.0\Bl.AssemblyInfo.cs
+C:\Users\WarSpite\source\repos\P0-M\BL\obj\Release\net5.0\Bl.csproj.CoreCompileInputs.cache
+C:\Users\WarSpite\source\repos\P0-M\BL\obj\Release\net5.0\Bl.csproj.CopyComplete
+C:\Users\WarSpite\source\repos\P0-M\BL\obj\Release\net5.0\Bl.dll
+C:\Users\WarSpite\source\repos\P0-M\BL\obj\Release\net5.0\ref\Bl.dll
+C:\Users\WarSpite\source\repos\P0-M\BL\obj\Release\net5.0\Bl.pdb

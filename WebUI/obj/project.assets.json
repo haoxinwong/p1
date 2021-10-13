@@ -2390,7 +2390,7 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Bl/1.0.0": {
+      "BL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
@@ -2402,10 +2402,10 @@
           "Serilog.Sinks.File": "5.0.0"
         },
         "compile": {
-          "bin/placeholder/Bl.dll": {}
+          "bin/placeholder/BL.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Bl.dll": {}
+          "bin/placeholder/BL.dll": {}
         }
       },
       "DL/1.0.0": {
@@ -8372,10 +8372,10 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "Bl/1.0.0": {
+    "BL/1.0.0": {
       "type": "project",
-      "path": "../BL/Bl.csproj",
-      "msbuildProject": "../BL/Bl.csproj"
+      "path": "../BL/BL.csproj",
+      "msbuildProject": "../BL/BL.csproj"
     },
     "DL/1.0.0": {
       "type": "project",
@@ -8390,7 +8390,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Bl >= 1.0.0",
+      "BL >= 1.0.0",
       "DL >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.10",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.10",
@@ -8430,8 +8430,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\Bl.csproj": {
-              "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\Bl.csproj"
+            "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\BL.csproj": {
+              "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\BL\\BL.csproj"
             },
             "C:\\Users\\WarSpite\\source\\repos\\P0-M\\DL\\DL.csproj": {
               "projectPath": "C:\\Users\\WarSpite\\source\\repos\\P0-M\\DL\\DL.csproj"

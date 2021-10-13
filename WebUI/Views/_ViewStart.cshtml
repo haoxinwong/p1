@@ -1,4 +1,17 @@
-﻿@{
-    Layout = "_Layout";
-    //Layout = "Login/index";
+﻿@if (@TempData["CustomerId"] == null)
+{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+else if (@TempData["CustomerId"].ToString() == "Admin")
+{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+else
+{
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Home Page";
 }

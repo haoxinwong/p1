@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebUI.Models.LineItemVM>
+
+@{
+    ViewData["Title"] = "ShoppingCart";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
+<h1>ShoppingCart</h1>
+
+<p>@ViewBag.message</p>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Inventory">Add More</a>
+</div>
+<div>
+    <a asp-action="PlaceOrder">Place Order</a>
+</div>

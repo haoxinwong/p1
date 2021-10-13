@@ -1,18 +1,24 @@
-﻿@*@model IEnumerable<WebUI.Models.CustomerVM>*@
-@model Models.Customer
+﻿@if (@TempData["CustomerId"] == null)
+{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+else if (@TempData["CustomerId"].ToString() == "Admin")
+{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+else
+{
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome to Liquor Store</h1>
-    <p>Enter your name to login in</p>
-    <div class="form-group">
-        <label asp-for="Name" class="control-label"></label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Submit" class="btn btn-primary" />
-    </div>
+    <h1>About us</h1>
+    <h1>Author: hao</h1>
+
 </div>

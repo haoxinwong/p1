@@ -13,7 +13,7 @@ namespace DL
         public List<Customer> GetAll();
         public Customer Update(Customer customerToUpdate);
         public Inventory UpdateInventory(Inventory inventory);
-        public Inventory UpdateInventory(Inventory inventory, string str);
+ 
         public Inventory UpdateInventory2(Inventory inventory);
         public List<Store> GetAllStore();
         public Store GetOneStoreById(int id);
@@ -21,6 +21,14 @@ namespace DL
         public Inventory AddInventoryItem(Inventory inv);
         public Store Add(Store sto);
         public List<Order> GetAllOrderbyStoreId(int id);
+
+        public Customer GetOneCustomerById(int custID);
+
+        public void RemoveInventory(int id);
+        public Inventory GetOneInventory(int id);
+
+        public Order GetOneOrderbyId(int id);
+        public void InventorToUpdate(List<Inventory> items);
 
     }
 }

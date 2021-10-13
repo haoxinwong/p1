@@ -16,6 +16,19 @@ namespace DL
             _context = context;
         }
 
+        public Customer GetOneCustomerById(int custID)
+        {
+            Customer customertoView = _context.Customers.Include(x => x.Orders).FirstOrDefault(u => u.Id == custID);
+            return new Customer()
+            {
+                Id = customertoView.Id,
+                Name = customertoView.Name,
+                Address = customertoView.Address ?? "",
+                PhoneNumber = customertoView.PhoneNumber ?? ""
+                
+            };
+        }
+
         public Order AddAOrder(Order order){
             // Console.WriteLine(order.Time+" "+ order.Total+" "+order.Location+" "+order.LocationId+" "+ order.CustomerId);
             Order orderToAdd = new Order(){ 
@@ -41,37 +54,22 @@ namespace DL
 
 
 
-        public List<Order> GetAllOrderbyId(int id){
-            List <Order> orderData = new List<Order>();
-            using(SqlConnection connection = new SqlConnection("Server=tcp:mp0server.database.windows.net,1433;Initial Catalog=P0;Persist Security Info=False;User ID=hao;Password=Zm111111;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-            {
-                connection.Open();
-                string query = $"SELECT Id,ToTal,OrderTime,StoreLocation,StoreId,CustomerId FROM Orders WHERE CustomerId={id}";
-                using(SqlCommand command = new SqlCommand(query, connection))
+        public List<Order> GetAllOrderbyId(int id)
+        {
+
+            return _context.Orders.Where(x => x.CustomerId == id).Select(
+                order => new Order()
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            // st<LineItem>lineItems, string location, int LocationID,int Custome
-                            string query2 = $"SELECT Name,Price,Quantity,Id,OrderId FROM CustomerLineItems WHERE OrderId={reader[0]}";
-                            List<LineItem> lineitemData = new List<LineItem>();
-                            using(SqlCommand command2 = new SqlCommand(query2, connection))
-                            {
-                                using (SqlDataReader reader2 = command2.ExecuteReader())
-                                {
-                                    while (reader2.Read())
-                                    {
-                                        lineitemData.Add(new LineItem(reader2.GetString(0),reader2.GetDecimal(1),reader2.GetInt32(2),reader2.GetInt32(4)));
-                                    }
-                                }
-                            }
-                            orderData.Add(new Order(lineitemData,reader.GetString(3),reader.GetInt32(4),reader.GetInt32(5),reader.GetDateTime(2)));
-                        }         
-                    }
+                    Id = order.Id,
+                    Time = order.Time,
+                    Location = order.Location,
+                    StoreId = order.StoreId,
+                    CustomerId = order.CustomerId,
+                    Total = order.Total
                 }
-            }
-            return orderData;
+            )
+                .ToList();
+            /*return _context.Orders.Where(x => x.CustomerId == id).Select(r => new Models.Order()).ToList();*/
         }
         public LineItem AddALineItem(LineItem lineitem){
             LineItem lineitemToAdd = new LineItem(){
@@ -139,6 +137,27 @@ namespace DL
             ).ToList();
         }
 
+        public Inventory GetOneInventory(int id)
+        {
+            return _context.Inventories.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void RemoveInventory(int id)
+        {
+            _context.Inventories.Remove(GetOneInventoryById(id));
+            _context.SaveChanges();
+            _context.ChangeTracker.Clear();
+        }
+        public Inventory GetOneInventoryById(int id)
+        {
+            return _context.Inventories
+                //this include method joins reviews table with the restaurant table
+                //and grabs all reviews that references the selected restaurant
+                //by restaurantId
+                // .Include("Reviews")
+                .AsNoTracking()
+                .FirstOrDefault(r => r.Id == id);
+        }
         public Customer Update(Customer customerToUpdate){
             Customer custToUpdate = new Customer(){
                 Id = customerToUpdate.Id,
@@ -163,7 +182,7 @@ namespace DL
         {
             Inventory invenToUpdate = new Inventory()
             {
-                // Id = inventory.Id,
+                //Id = inventory.Id,
                 Name = inventory.Name,
                 Price = inventory.Price,
                 Quantity = inventory.Quantity,
@@ -184,49 +203,18 @@ namespace DL
             };
         }
 
-        public Inventory UpdateInventory(Inventory inventory, string str)
-        {
-            string constr = "Server=tcp:mp0server.database.windows.net,1433;Initial Catalog=P0;Persist Security Info=False;User ID=hao;Password=Zm111111;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            SqlConnection con = new SqlConnection(constr);
-            con.Open();
-            SqlCommand cmd = new SqlCommand($"UPDATE Inventory  SET Quantity = {inventory.Quantity} Where Id ={inventory.Id}", con);
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            return inventory;
-        }
 
         public Inventory UpdateInventory2(Inventory inventory)
         {
-            Inventory invToUpdate = new Inventory()
-            {
-                Id = inventory.Id,
-                Price = (decimal)inventory.Price,
-                Name = inventory.Name,
-                Quantity = (int)inventory.Quantity,
-                StoreId = (int)inventory.StoreId
-            };
+           
+            Inventory invToUpdate =  _context.Inventories.Update(inventory).Entity;
 
-            invToUpdate = _context.Inventories.Update(invToUpdate).Entity;
-            _context.SaveChanges();
+             _context.SaveChanges();
             _context.ChangeTracker.Clear();
 
-            return new Inventory()
-            {
-                Id = invToUpdate.Id,
-                Price = (decimal)invToUpdate.Price,
-                Name = invToUpdate.Name,
-                Quantity = (int)invToUpdate.Quantity,
-                StoreId = (int)invToUpdate.StoreId
-            };
 
-            // string constr = "Server=tcp:mp0server.database.windows.net,1433;Initial Catalog=P0;Persist Security Info=False;User ID=hao;Password=Zm111111;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            // SqlConnection con = new SqlConnection(constr);
-            // con.Open();
-            // SqlCommand cmd = new SqlCommand($"UPDATE Inventory  SET Price = {inventory.Price} Where Id ={inventory.Id}",con);
-            // cmd.ExecuteNonQuery();
-            // con.Close();
-            // return inventory;
+            return invToUpdate;
+
         }
 
         public List<Store> GetAllStore()
@@ -274,6 +262,21 @@ namespace DL
                     StoreId = (int)r.StoreId
                 }).ToList()
             };
+        }
+        public void InventorToUpdate(List<Inventory> items)
+        {
+
+            foreach (Inventory item in items)
+            {
+
+                Inventory updatedInventory = (from i in _context.Inventories
+                                              where i.Id == item.Id
+                                              select i).SingleOrDefault();
+
+                updatedInventory.Quantity = item.Quantity;
+            }
+            _context.SaveChanges();
+            _context.ChangeTracker.Clear();
         }
 
         public Store Update(Store storeToUpdate)
@@ -345,36 +348,62 @@ namespace DL
 
         public List<Order> GetAllOrderbyStoreId(int id)
         {
-            List<Order> orderData = new List<Order>();
-            using (SqlConnection connection = new SqlConnection("Server=tcp:mp0server.database.windows.net,1433;Initial Catalog=P0;Persist Security Info=False;User ID=hao;Password=Zm111111;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-            {
-                connection.Open();
-                string query = $"SELECT Id,ToTal,OrderTime,StoreLocation,LocationId,CustomerId FROM Orders WHERE StoreId={id}";
-                using (SqlCommand command = new SqlCommand(query, connection))
+            return _context.Orders.Where(x => x.StoreId == id).Select(
+                order => new Order()
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            // st<LineItem>lineItems, string location, int LocationID,int Custome
-                            string query2 = $"SELECT Name,Price,Quantity,Id,OrderId FROM CustomerLineItems WHERE OrderId={reader[0]}";
-                            List<LineItem> lineitemData = new List<LineItem>();
-                            using (SqlCommand command2 = new SqlCommand(query2, connection))
-                            {
-                                using (SqlDataReader reader2 = command2.ExecuteReader())
-                                {
-                                    while (reader2.Read())
-                                    {
-                                        lineitemData.Add(new LineItem(reader2.GetString(0), reader2.GetDecimal(1), reader2.GetInt32(2), reader2.GetInt32(4)));
-                                    }
-                                }
-                            }
-                            orderData.Add(new Order(lineitemData, reader.GetString(3), reader.GetInt32(4), reader.GetInt32(5), reader.GetDateTime(2)));
-                        }
-                    }
+                    Id = order.Id,
+                    Time = order.Time,
+                    Location = order.Location,
+                    StoreId = order.StoreId,
+                    CustomerId = order.CustomerId,
+                    Total = order.Total
                 }
-            }
-            return orderData;
+            ).ToList();
+        }
+
+        public List<LineItem> GetLineItemsbyOrderId(int id)
+        {
+            return _context.CustomerLineItems.Where(x => x.OrderId == id).Select(
+                lineItem => new LineItem()
+                {
+                    Id = lineItem.Id,
+                    OrderId = lineItem.OrderId,
+                    Name = lineItem.Name,
+                    Price = lineItem.Price,
+                    Quantity = lineItem.Quantity
+                }
+            ).ToList();
+        }
+
+        public Order GetOneOrderbyId(int id)
+        {
+            Order orderById =
+                _context.Orders
+                //this include method joins reviews table with the restaurant table
+                //and grabs all reviews that references the selected restaurant
+                //by restaurantId
+                // .Include("Reviews")
+                .Include(r => r.LineItems)
+                .FirstOrDefault(r => r.Id == id);
+
+            return new Order()
+            {
+                Id = orderById.Id,
+                Time = orderById.Time,
+                Location = orderById.Location,
+                StoreId = orderById.StoreId,
+                CustomerId = orderById.CustomerId,
+                Total = orderById.Total,
+                LineItems = orderById.LineItems.Select(r => new LineItem()
+                {
+                    Id = r.Id,
+                    Name = r.Name,
+                    Price = (decimal)r.Price,
+                    Quantity = (int)r.Quantity,
+                    OrderId = r.OrderId
+                    
+                }).ToList()
+            };
         }
 
 

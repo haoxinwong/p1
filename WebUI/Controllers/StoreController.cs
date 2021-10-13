@@ -57,6 +57,12 @@ namespace WebUI.Controllers
             }
         }
 
+        public ActionResult Inventory(int id)
+        {
+            List<InventoryVM>inventory = _bl.GetOneStoreById(id).Inventory.Select(r => new InventoryVM(r)).ToList();
+            return View(inventory);
+        }
+
         // GET: StoreController/Edit/5
         public ActionResult Edit(int id)
         {

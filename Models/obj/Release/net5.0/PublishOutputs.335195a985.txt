@@ -1,0 +1,6 @@
+C:\Users\WarSpite\source\repos\p0-m\publish\Models.dll
+C:\Users\WarSpite\source\repos\p0-m\publish\Models.deps.json
+C:\Users\WarSpite\source\repos\p0-m\publish\Models.pdb
+C:\Users\WarSpite\source\repos\p0-m\publish\Serilog.dll
+C:\Users\WarSpite\source\repos\p0-m\publish\Serilog.Sinks.Console.dll
+C:\Users\WarSpite\source\repos\p0-m\publish\Serilog.Sinks.File.dll

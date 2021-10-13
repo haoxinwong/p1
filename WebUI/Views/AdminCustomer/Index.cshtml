@@ -1,0 +1,39 @@
+﻿@model WebUI.Models.CustomerVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Index</h1>
+<p>Hello, your majesty, this is a page to show you customer information</p>
+
+<br />
+<div>
+
+    <div class="row">
+    <form asp-action="ShowAllCustomerName" method="get">
+        <button runat="server" type="submit">Show All Customer Name</button>
+    </form>
+
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <div class="row">
+        <form asp-action="SearchCustomerByName" method="post">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <br />
+            <br />
+            <input type="submit" value="SearchCustomerByName" />
+        </form>
+    </div>
+
+</div>
+
+
+

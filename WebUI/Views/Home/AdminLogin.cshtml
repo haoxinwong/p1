@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "AdminLogin";
+}
+
+<h1>AdminLogin</h1>
+
+<div class="row">
+    <label class="control-label">Admin Name: </label>
+    <input id="name" class="form-control" />
+    <label class="control-label">Admin Code: </label>
+    <input id="code" class="form-control" />
+    <label>@ViewBag.message</label>
+    <button onclick="Login"></button>
+
+</div>
+    <div>
+        <a asp-action="Index">Back</a>
+    </div>
+

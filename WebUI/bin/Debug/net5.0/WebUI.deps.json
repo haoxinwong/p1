@@ -33,7 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "WebUI/1.0.0": {
         "dependencies": {
-          "Bl": "1.0.0",
+          "BL": "1.0.0",
           "DL": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.10",
           "Microsoft.EntityFrameworkCore.Design": "5.0.10",
@@ -2028,7 +2028,7 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
-      "Bl/1.0.0": {
+      "BL/1.0.0": {
         "dependencies": {
           "DL": "1.0.0",
           "Models": "1.0.0",
@@ -2038,10 +2038,10 @@
           "Serilog.Sinks.File": "5.0.0"
         },
         "runtime": {
-          "Bl.dll": {}
+          "BL.dll": {}
         },
         "compile": {
-          "Bl.dll": {}
+          "BL.dll": {}
         }
       },
       "DL/1.0.0": {
@@ -4786,7 +4786,7 @@
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
-    "Bl/1.0.0": {
+    "BL/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
