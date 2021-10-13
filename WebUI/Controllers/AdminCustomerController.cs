@@ -185,11 +185,11 @@ namespace WebUI.Controllers
         public ActionResult HistoryOrder(string selectedBatchId)
         {
 
-            if (Request.Cookies["AdminStoreHistoryOrder"] != null)
+            if (Request.Cookies["AdminHistoryOrder"] != null)
             {
-                Response.Cookies.Delete("AdminStoreHistoryOrder");
+                Response.Cookies.Delete("AdminHistoryOrder");
             }
-            Response.Cookies.Append("AdminStoreHistoryOrder", selectedBatchId);
+            Response.Cookies.Append("AdminHistoryOrder", selectedBatchId);
             return RedirectToAction("StoreHistory", "AdminStore");
         }
 
