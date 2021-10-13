@@ -26,6 +26,18 @@ namespace Models
             this.Orders = orders;
         }
 
+        public string CheckPhoneNumber(string str)
+        {
+            string pattern = @"^[0-9]*$";
+            string result = str;
+
+            if (!((str.Length == 10) && (System.Text.RegularExpressions.Regex.IsMatch(str, pattern))))
+            {
+                result = "-1";
+            }
+            return result;
+        }
+
 
     }
 }

@@ -190,7 +190,7 @@ namespace WebUI.Controllers
                 Response.Cookies.Delete("AdminHistoryOrder");
             }
             Response.Cookies.Append("AdminHistoryOrder", selectedBatchId);
-            return RedirectToAction("StoreHistory", "AdminStore");
+            return RedirectToAction("SearchCustomerByName", "AdminCustomer");
         }
 
         public ActionResult Error()

@@ -27,7 +27,7 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a asp-area="" asp-controller="CustomerHome" asp-action="Logout" style="margin-left : 5px; padding: 3px; border:dashed"> Logout </a></li>
+                        <li><a asp-area="" class="button-secondary pure-button" asp-controller="CustomerHome" asp-action="Logout"> Logout </a></li>
                     </ul>
                 </div>
             </div>
@@ -50,3 +50,13 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<style>
+    .button-secondary {
+        color: white;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        margin: 0px 3px;
+        padding: 3px;
+        background: rgb(28, 184, 65);
+    }
+</style>

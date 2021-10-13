@@ -133,8 +133,10 @@ namespace WebUI.Controllers
             try
             {
 
-                _bl.Add(cust.ToModel());
-
+                int i = _bl.Add(cust.ToModel()).Id;
+                TempData["CustomerId"] = i;
+                TempData.Keep("CustomerId");
+                Response.Cookies.Append("CustomerId", i.ToString());
                 return RedirectToAction(nameof(Index));
             }
             catch

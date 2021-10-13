@@ -1,7 +1,7 @@
-/*using System;
+using System;
 using Xunit;
-using P0_M.Models;
-using P0_M.UI;
+using Models;
+
 
 namespace Tests
 {
@@ -10,37 +10,59 @@ namespace Tests
         [Fact]
         public void CustomerCreate()
         {
-            Customer c=  new Customer();
+            Customer c = new Customer();
 
             Assert.NotNull(c);
         }
         [Fact]
         public void CustomerData()
         {
-        //Given
+            //Given
             Customer c = new Customer();
             string testname = "test";
-        //When
+            //When
             c.Name = testname;
-        //Then
-            Assert.Equal(testname,c.Name);
+            //Then
+            Assert.Equal(testname, c.Name);
         }
 
         [Fact]
-        public void InventoryPrice(){
+        public void InventoryPrice()
+        {
             Inventory i = new Inventory();
             decimal test = 1;
-        //When
+            //When
             i.Price = test;
-        //Then
-            Assert.Equal(test,i.Price);
+            //Then
+            Assert.Equal(test, i.Price);
         }
 
+        [Fact]
+        public void InventoryName()
+        {
+            Inventory i = new Inventory();
+            string test = "name";
+            //When
+            i.Name = test;
+            //Then
+            Assert.Equal(test, i.Name);
+        }
+        [Fact]
+        public void InventoryQuantity()
+        {
+            Inventory i = new Inventory();
+            int test = 5;
+            //When
+            i.Quantity = test;
+            //Then
+            Assert.Equal(test, i.Quantity);
+        }
         [Theory, MemberData(nameof(CorrectData))]
-        public void OrderTime(DateTime time){
-            Order o =new Order();
-            o.Time =time;
-            Assert.Equal(time,o.Time);
+        public void OrderTime(DateTime time)
+        {
+            Order o = new Order();
+            o.Time = time;
+            Assert.Equal(time, o.Time);
         }
 
         public static readonly object[][] CorrectData =
@@ -55,11 +77,11 @@ namespace Tests
         [InlineData("13545")]
         [InlineData("%$@^^")]
         [InlineData("safdw")]
-        public void CheckThephonenumber(string input){
-            CustomerLoginMenu i = new CustomerLoginMenu();
-            Assert.Equal("-1",i.CheckPhoneNumber(input));
+        public void CheckThephonenumber(string input)
+        {
+            Customer i = new Customer();
+            Assert.Equal("-1", i.CheckPhoneNumber(input));
         }
 
     }
 }
-*/

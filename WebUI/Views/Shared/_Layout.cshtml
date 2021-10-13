@@ -27,8 +27,8 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a asp-area="" asp-controller="CustomerHome" asp-action="Create" style="margin-right : 5px; padding: 3px; border:dashed">Sign Up  </a></li>
-                        <li><a asp-area="" asp-controller="CustomerHome" asp-action="login" style="margin-left: 5px; padding: 3px; border: dashed">  Login</a></li>
+                        <li><a asp-area="" class="button-secondary pure-button" asp-controller="CustomerHome" asp-action="Create" >Sign Up  </a></li>
+                        <li><a asp-area="" class="button-secondary pure-button" asp-controller="CustomerHome" asp-action="login" >  Login</a></li>
 
                     </ul>
                 </div>
@@ -52,3 +52,14 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<style>
+    .button-secondary {
+        color: white;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        margin: 0px 3px;
+        padding: 3px;
+        background: rgb(66, 184, 221);
+    }
+
+</style>
